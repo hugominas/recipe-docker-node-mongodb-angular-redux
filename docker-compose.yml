@@ -35,9 +35,9 @@ services:
       args:
         app_env: ${APP_ENV}
     volumes:
-      - ./api:/go/src/github.com/hugominas/gomore/api
+      - ./api:/var/www/api
     ports:
-      - "5000:5000"
+      - "9999:9999"
     links:
       - mongodb
     networks:

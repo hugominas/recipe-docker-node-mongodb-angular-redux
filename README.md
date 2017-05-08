@@ -1,18 +1,18 @@
-# GoANg2Mon Boilerplate
-GoANg2Mon (Go Angular2 Nginx Mongodb) boilerplate.
+# NoANgMon Boilerplate
+NoANgMon (Nodejs Angular2 Nginx Mongodb) boilerplate.
 
 ## Features
 - [x] Docker containers config
 - [X] Angular2 Redux Boilerplate
-- [x] Golang Mux API boilerplate
+- [ ] Nodejs API boilerplate
 - [x] Mongodb setup
 - [x] Nginx config
 - [ ] CD/CI Jenkins integration
 
 ## Benifits
-- Anyone can contribute to your project locally without having to setup/install GOPATH, Mongodb, node etc
+- Anyone can contribute to your project locally without having to setup/install Nodejs, Mongodb, node etc
 - Dev enviroment is the same as production enviroment
-- Quickly get your GoANg2Mon project off the ground
+- Quickly get your NoANgMon project off the ground
 
 ## Getting started:
 * download [docker-compose](https://docs.docker.com/compose/install/) if not already installed
@@ -22,9 +22,9 @@ Then run the following commands:
 $ git clone https://github.com/hugominas/recipe-docker-node-mongodb-angular-redux yourAddDir.
 $ docker-compose up
 ```
-Then you can open the React frontend at localhost:3000 and the RESTful GoLang API at localhost:5000
+Then you can open the Angular frontend at localhost:3000 and the RESTful Nodejs API at localhost:5000
 
-Changing any frontend (Angular2) code locally will cause a hot-reload in the browser with updates and changing any backend (GoLang) code locally will also automatically update any changes.
+Changing any frontend (Angular2) code locally will cause a hot-reload in the browser with updates and changing any backend (Nodejs) code locally will also automatically update any changes.
 
 Then to build production images run:
 ```bash
