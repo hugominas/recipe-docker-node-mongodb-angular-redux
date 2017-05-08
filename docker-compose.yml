@@ -1,0 +1,54 @@
+version: '2'
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+
+  nginx:
+    build: ./nginx/
+    links:
+      - api
+    networks:
+      - app-tier
+    ports:
+      - "8080:80"
+
+  mongodb:
+    build: ./db
+    volumes:
+      - ./db/mongodb:/var/lib/mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_USERNAME=${MONGODB_USERNAME}
+      - MONGODB_PASSWORD=${MONGODB_PASSWORD}
+      - MONGODB_DATABASE=${MONGODB_DATABASE}
+      - MONGODB_ROOT_USERNAME=${MONGODB_ROOT_USERNAME}
+      - MONGODB_ROOT_PASSWORD=${MONGODB_ROOT_PASSWORD}
+    networks:
+      - app-tier
+
+  api:
+    build:
+      context: ./api
+      args:
+        app_env: ${APP_ENV}
+    volumes:
+      - ./api:/go/src/github.com/hugominas/gomore/api
+    ports:
+      - "5000:5000"
+    links:
+      - mongodb
+    networks:
+      - app-tier
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        app_env: ${APP_ENV}
+    volumes:
+      - ./frontend/src:/frontend/src
+    ports:
+      - "3000:3000"
