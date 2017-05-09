@@ -1,9 +1,5 @@
-npm-debug.log
-node_modules
-jspm_packages
-build
-dist
-test.js
+.DS_Store
 .idea
-lib
-
+node_modules
+dist
+typings
